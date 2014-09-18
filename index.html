@@ -11,9 +11,6 @@
 	
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/my-app.css">
-	  
-	<!-- Path to jQuery -->
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	
 	<!-- Custom CSS -->  
 	<style>
@@ -82,47 +79,7 @@
       </div>
     </div>
     <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="js/framework7.min.js"></script>
-	  
-  	<script>
-         
-			// Select Template
-			var template = document.getElementById('random-template').innerHTML;
-
-			// Compile and render
-			var compiledTemplate = Template7.compile(template);
-		
-		// Defined as function "getrandom"
-		function getrandom() {
-			// Get JSON Data from UrbanDictionary API 
-			$.getJSON ('http://api.urbandictionary.com/v0/random', function (json) {
-
-			// Insert rendered template
-			document.getElementById('content-wrap').innerHTML = compiledTemplate(json);
-			});
-		};
-		
-		// Execute to list UrbanDictionary Definitions
-		getrandom();
-			
-		
-		// Select Pull to refresh content
-		var ptrContent = $$('.pull-to-refresh-content');
-
-		// On refresh
-		ptrContent.on('refresh', function (e) {
-    	// Emulate 1s loading
-    	setTimeout(function () {
-		
-			// Execute getrandom to get new Definitions
-			getrandom();
-		
-        myApp.pullToRefreshDone();
-		}, 1000);
-		});
-		
-    </script>
-	  
+    <script type="text/javascript" src="js/framework7.min.js"></script>	  
 	<!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
   </body>
