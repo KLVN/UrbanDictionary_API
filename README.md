@@ -7,6 +7,6 @@ New: Pull to Refresh/get new Definitions!
 
 License
 =======
-  "THE PIZZA-WARE LICENSE" (Revision 42):
-  You can do whatever you want with this stuff.
-  If we meet some day, and you think this stuff is worth it, you can buy me a pizza in return.
+    "THE PIZZA-WARE LICENSE" (Revision 42):
+    You can do whatever you want with this stuff. 
+    If we meet some day, and you think this stuff is worth it, you can buy me a Pizza in return.
