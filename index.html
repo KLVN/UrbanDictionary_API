@@ -23,10 +23,6 @@
 		.list-block .item-text {
 			height: auto;
 		}
-		.navbar-through .page-content, .navbar-fixed .page-content {
-			padding-top: 8px;
-			padding-bottom: 0px;
-		}
 	 </style>
   </head>
   <body>
@@ -49,7 +45,12 @@
 			<!-- Page, data-page contains page name-->
 			<div data-page="index" class="page">
 				<!-- Scrollable page content-->
-				<div class="page-content">
+				<div class="page-content pull-to-refresh-content">
+					<!-- Pull to Refresh -->
+					<div class="pull-to-refresh-layer">
+					  <div class="preloader"></div>
+					  <div class="pull-to-refresh-arrow"></div>
+					</div>
 				
 				<!-- Div for Result -->
 				<div id="content-wrap"></div>
@@ -84,18 +85,42 @@
     <script type="text/javascript" src="js/framework7.min.js"></script>
 	  
   	<script>
-        // Select Template
-        var template = document.getElementById('random-template').innerHTML;
+         
+			// Select Template
+			var template = document.getElementById('random-template').innerHTML;
+
+			// Compile and render
+			var compiledTemplate = Template7.compile(template);
 		
-        // Compile and render
-        var compiledTemplate = Template7.compile(template);
+		// Defined as function "getrandom"
+		function getrandom() {
+			// Get JSON Data from UrbanDictionary API 
+			$.getJSON ('http://api.urbandictionary.com/v0/random', function (json) {
+
+			// Insert rendered template
+			document.getElementById('content-wrap').innerHTML = compiledTemplate(json);
+			});
+		};
 		
-		// Get JSON Data from UrbanDictionary API 
-		$.getJSON ('http://api.urbandictionary.com/v0/random', function (json) {
+		// Execute to list UrbanDictionary Definitions
+		getrandom();
 			
-		// Insert rendered template
-		document.getElementById('content-wrap').innerHTML = compiledTemplate(json);
-		});	  
+		
+		// Select Pull to refresh content
+		var ptrContent = $$('.pull-to-refresh-content');
+
+		// On refresh
+		ptrContent.on('refresh', function (e) {
+    	// Emulate 1s loading
+    	setTimeout(function () {
+		
+			// Execute getrandom to get new Definitions
+			getrandom();
+		
+        myApp.pullToRefreshDone();
+		}, 1000);
+		});
+		
     </script>
 	  
 	<!-- Path to your app js-->
