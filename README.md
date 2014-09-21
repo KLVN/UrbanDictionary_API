@@ -3,7 +3,12 @@ UrbanDictionary_API
 
 Simple Webapp based on the awesome Framework7 (http://www.idangero.us/framework7) to show Random Definitions from UrbanDictionary using $.getJSON and their 'hidden' API
 
-New: Pull to Refresh/get new Definitions!
+Pull to get new Definitions
+
+
+Screenshot
+===================
+![Pull to Refresh](https://dl.dropboxusercontent.com/u/31870855/Forum/UrbanDicAPI2.png)
 
 License
 =======
