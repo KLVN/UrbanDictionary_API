@@ -46,7 +46,7 @@ var modalInfo = localStorage.modalInfo;
 if (!modalInfo) {
     myApp.modal({
     title: 'Welcome,',
-    text: 'this is just an example to test out Template7 and the UrbanDictionary API',
+    text: 'this is just an example to test out Template7 and the UrbanDictionary API. Pull to get new Random Definitions!',
     buttons: [
       {text: 'Okay'}] 
     });localStorage.modalInfo = 'true'
